@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import {DataTableModule} from "angular2-datatable";
 
 import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
@@ -14,17 +15,19 @@ import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home.component';
 import { HealthComponent } from './health/health.component';
+import { DataFilterPipe }   from './health/data-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HealthComponent
+    HealthComponent, DataFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    DataTableModule,
     NavbarModule,
     FooterModule,
     SidebarModule,

@@ -4,21 +4,51 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Striped Table with Hover</h4>
-                        <p class="category">Here is a subtitle for this table</p>
+                        <h4 class="title">Data Listing</h4>
+                    </div>
+                    
+                    <div class="content row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Filter by name:</label>
+                                <input type="text" class="form-control" placeholder="Name" value="Mike" [(ngModel)]="filterQuery"/>
+                            </div>
+                        </div>
                     </div>
                     <div class="content table-responsive table-full-width">
-                          <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let row of tableData1.dataRows">
-                                        <td *ngFor="let cell of row">{{cell}}</td>
-                                    </tr>
-                                </tbody>
+                          <table class="table table-hover table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable"
+                          [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                          <thead>
+                            <tr>
+                                <th style="width: 20%">
+                                    <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                                </th>
+                                <th style="width: 40%">
+                                    <mfDefaultSorter by="email">Email</mfDefaultSorter>
+                                </th>
+                                <th style="width: 10%">
+                                    <mfDefaultSorter by="age">Age</mfDefaultSorter>
+                                </th>
+                                <th style="width: 20%">
+                                    <mfDefaultSorter [by]="sortByWordLength">City</mfDefaultSorter>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of mf.data">
+                                <td>{{item.name}}</td>
+                                <td>{{item.email}}</td>
+                                <td class="text-right">{{item.age}}</td>
+                                <td>{{item.city | uppercase}}</td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                            </tfoot>
                           </table>
 
                     </div>
