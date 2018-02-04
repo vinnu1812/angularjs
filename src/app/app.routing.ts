@@ -7,9 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { HealthComponent } from './health/health.component';
 
 const routes: Routes =[
-    { path: 'dashboard',      component: HomeComponent },
     { path: 'health',          component: HealthComponent },
-    { path: '',          redirectTo: 'dashboard', pathMatch: 'full' }
+    { path: '',          redirectTo: 'health', pathMatch: 'full' }
 ];
 
 @NgModule({
