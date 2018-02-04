@@ -4,11 +4,11 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { TablesComponent } from './tables/tables.component';
+import { HealthComponent } from './health/health.component';
 
 const routes: Routes =[
     { path: 'dashboard',      component: HomeComponent },
-    { path: 'table',          component: TablesComponent },
+    { path: 'health',          component: HealthComponent },
     { path: '',          redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
