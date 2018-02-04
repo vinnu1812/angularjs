@@ -1,0 +1,101 @@
+{
+    "healthMetrics":[
+        {
+            "host": "test updated",
+            "storeId": 91,
+            "reboots": 3,
+            "type": null,
+            "sn": "health",
+            "eftl": 1,
+            "eftp": 2,
+            "firmwareVersion": "test",
+            "timestamp": 1517418073000
+        },
+        {
+            "host": "vin",
+            "storeId": 390,
+            "reboots": 3,
+            "type": null,
+            "sn": "health vin update",
+            "eftl": 1,
+            "eftp": 2,
+            "firmwareVersion": "test",
+            "timestamp": 1517501555000
+        },
+        {
+            "host": "vin 1",
+            "storeId": 540,
+            "reboots": 4,
+            "type": null,
+            "sn": "health vin update",
+            "eftl": 1,
+            "eftp": 2,
+            "firmwareVersion": "demo",
+            "timestamp": 1517501555000
+        },
+        {
+            "host": "num 2",
+            "storeId": 987,
+            "reboots": 3,
+            "type": null,
+            "sn": "health update",
+            "eftl": 1,
+            "eftp": 2,
+            "firmwareVersion": "test",
+            "timestamp": 1517501555000
+        },
+        {
+            "host": "test updated",
+            "storeId": 200,
+            "reboots": 3,
+            "type": null,
+            "sn": "health",
+            "eftl": 1,
+            "eftp": 2,
+            "firmwareVersion": "test",
+            "timestamp": 1517418073000
+        },
+        {
+            "host": "vin",
+            "storeId": 746,
+            "reboots": 3,
+            "type": null,
+            "sn": "health vin update",
+            "eftl": 1,
+            "eftp": 2,
+            "firmwareVersion": "test",
+            "timestamp": 1517501555000
+        },
+        {
+            "host": "vin 1",
+            "storeId": 123,
+            "reboots": 4,
+            "type": null,
+            "sn": "health vin update",
+            "eftl": 1,
+            "eftp": 2,
+            "firmwareVersion": "demo",
+            "timestamp": 1517501555000
+        },
+        {
+            "host": "num 2",
+            "storeId": 345,
+            "reboots": 3,
+            "type": null,
+            "sn": "health update",
+            "eftl": 1,
+            "eftp": 2,
+            "firmwareVersion": "test",
+            "timestamp": 1517501555000
+        }
+    ],
+    "_pageInfo": {
+        "totalCount": 8,
+        "totalPages": 1,
+        "isFirst": true,
+        "isLast": true,
+        "pageNumber": 1,
+        "pageSize": 20
+    },
+    "status": "200"
+}

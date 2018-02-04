@@ -9,19 +9,21 @@ import {Http} from "@angular/http";
 export class HealthComponent implements OnInit {
     
     public data;
+    public healthData;
     public filterQuery = "";
-    public rowsOnPage = 10;
-    public sortBy = "email";
+    public rowsOnPage = 5;
+    public sortBy = "host";
     public sortOrder = "asc";
 
     constructor(private http: Http) {
     }
 
     ngOnInit(): void {
-        this.http.get("assets/data.json")
+        this.http.get("assets/dummy.json")
             .subscribe((data)=> {
                 setTimeout(()=> {
                     this.data = data.json();
+                    this.healthData = this.data.healthMetrics;
                 }, 1000);
             });
     }
