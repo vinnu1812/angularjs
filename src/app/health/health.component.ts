@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from "@angular/http";
+import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 
 @Component({
   selector: 'app-tables',
@@ -44,5 +45,12 @@ export class HealthComponent implements OnInit {
     public refresh(){
         this.healthData = new Array<any>();
         setTimeout(() => this.getData(), 1000);
+    }
+
+    public downloadExcel() {
+        new Angular2Csv(
+            this.healthData,
+            'HealthData',
+            { headers: Object.keys(this.healthData[0]) });
     }
 }
