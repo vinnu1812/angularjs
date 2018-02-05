@@ -19,13 +19,18 @@ export class HealthComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.getData();
+    }
+
+    public getData() {
         this.http.get("assets/dummy.json")
-            .subscribe((data)=> {
-                setTimeout(()=> {
-                    this.data = data.json();
-                    this.healthData = this.data.healthMetrics;
-                }, 1000);
-            });
+        .subscribe((data)=> {
+            setTimeout(()=> {
+                this.data = data.json();
+                this.healthData = new Array<any>();
+                this.healthData = this.healthData.concat(this.data.healthMetrics);
+            }, 1000);
+        });
     }
 
     public toInt(num: string) {
@@ -34,5 +39,10 @@ export class HealthComponent implements OnInit {
 
     public sortByWordLength = (a: any) => {
         return a.city.length;
+    }
+
+    public refresh(){
+        this.healthData = new Array<any>();
+        setTimeout(() => this.getData(), 1000);
     }
 }

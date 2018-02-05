@@ -13,6 +13,16 @@
                                 <input type="text" class="form-control" placeholder="host" value="vin" [(ngModel)]="filterQuery"/>
                             </div>
                         </div>
+                        <div class="col-md-8" style="padding-top: 16px;">
+                            <div class="form-group">
+                                <button type="button" (click)="refresh()" class="btn btn-info btn-fill pull-right">
+                                    <span class="fa fa-refresh"></span> 
+                                </button>
+                                <button style="margin-right: 10px;" type="button" class="btn btn-default btn-fill pull-right">
+                                    <span class="fa fa-download"></span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                     <div class="content table-responsive table-full-width">
                           <table class="table table-hover table-striped" [mfData]="healthData | dataFilter : filterQuery" #mf="mfDataTable"
