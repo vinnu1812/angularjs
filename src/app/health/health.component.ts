@@ -43,6 +43,7 @@ export class HealthComponent implements OnInit {
     }
 
     public refresh(){
+        this.filterQuery = '';
         this.healthData = new Array<any>();
         setTimeout(() => this.getData(), 1000);
     }
