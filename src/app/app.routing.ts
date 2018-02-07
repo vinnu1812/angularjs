@@ -3,12 +3,11 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
 import { HealthComponent } from './health/health.component';
 
 const routes: Routes =[
-    { path: 'health',          component: HealthComponent },
-    { path: '',          redirectTo: 'health', pathMatch: 'full' }
+    { path: 'health', component: HealthComponent },
+    { path: '', redirectTo: 'health', pathMatch: 'full' }
 ];
 
 @NgModule({
