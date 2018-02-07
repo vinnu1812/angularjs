@@ -24,7 +24,7 @@ export class HealthComponent implements OnInit {
     }
 
     public getData() {
-        this.http.get("assets/dummy.json")
+        this.http.get("http://localhost:8080/has/health")
         .subscribe((data)=> {
             setTimeout(()=> {
                 this.data = data.json();
