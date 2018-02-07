@@ -12,6 +12,7 @@
     border-radius: 0;
     
     .navbar-brand {
+        color: white;
         font-weight: $font-weight-normal;
         margin: $navbar-margin-brand;
         padding: $navbar-padding-brand;
@@ -158,11 +159,12 @@
 
 .navbar-default {
     background-color: $white-navbar;
+    background: #c2185b;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   
     .navbar-nav{
         > li > a:not(.btn){
-            color: $dark-gray;
+            color: $white-color;
         }
         
         > .active > a, 
@@ -172,7 +174,7 @@
         > li > a:not(.btn):focus {
             background-color: transparent;
             border-radius: 3px;
-            color: $info-color;
+            color: white;
             @include opacity(1);
         }
         
@@ -187,7 +189,7 @@
         > .open > a:hover, 
         > .open > a:focus{
             background-color: transparent;
-            color: $info-color;
+            color: white;
         }
 
         .navbar-toggle:hover,.navbar-toggle:focus {
@@ -290,4 +292,8 @@
     }
 }
 
-
+.not-active {
+    pointer-events: none;
+    cursor: default;
+    color: darkgray !important;
+   }

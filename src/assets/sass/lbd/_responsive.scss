@@ -76,9 +76,6 @@
             }
         }
     }
-    .navbar-cmp-fixed .navbar{
-        width: calc(100% - 260px);
-    }
 }
 
 /*          Changes for small display      */
@@ -413,7 +410,6 @@
 
     .close-layer{
         height: 100%;
-        width: calc(100% - 260px);
         position: fixed;
         opacity: 0;
         display: block;
