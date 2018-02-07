@@ -501,7 +501,7 @@ input:focus {
   opacity: 0.8;
   filter: alpha(opacity=80);
   padding: 8px 16px;
-  border-color: #888888;
+  border-color: #c2185b !important;
   color: #888888; }
   .btn:hover, .btn:focus, .btn:active, .btn.active, .btn:active:focus, .btn:active:hover, .btn.active:focus, .btn.active:hover, .open > .btn.dropdown-toggle {
     background-color: transparent;
@@ -512,11 +512,11 @@ input:focus {
     border-color: #888888; }
   .btn.btn-fill {
     color: #FFFFFF;
-    background-color: #888888;
+    background-color: #c2185b !important;
     opacity: 1;
     filter: alpha(opacity=100); }
     .btn.btn-fill:hover, .btn.btn-fill:focus, .btn.btn-fill:active, .btn.btn-fill.active, .open > .btn.btn-fill.dropdown-toggle {
-      background-color: #777777;
+      background-color: #c2185b !important;
       color: #FFFFFF; }
     .btn.btn-fill .caret {
       border-top-color: #FFFFFF; }
