@@ -25,12 +25,12 @@ export class HealthComponent implements OnInit {
     }
 
     public getData() {
-        this.http.get("assets/dummy.json")
+        this.http.get("http://localhost:8080/has/health")
         .subscribe((data)=> {
             setTimeout(()=> {
                 this.data = data.json();
                 this.healthData = new Array<any>();
-                this.healthData = this.healthData.concat(this.data.healthMetrics);
+                this.healthData = this.healthData.concat(this.data.result.HealthMetrics);
             }, 1000);
         });
     }
