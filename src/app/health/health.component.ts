@@ -19,7 +19,6 @@ export class HealthComponent implements OnInit {
     public sortOrder = 'asc';
 
     constructor(private http: Http) {
-        console.log(config.apiUrl);
     }
 
     ngOnInit(): void {
@@ -31,9 +30,9 @@ export class HealthComponent implements OnInit {
         .subscribe((data)=> {
             setTimeout(()=> {
                 this.data = data.json();
+                this.data.HealthMetrics = this.fomatHealthData(this.data.HealthMetrics);
                 this.healthData = new Array<any>();
                 this.healthData = this.healthData.concat(this.data.HealthMetrics);
-                //fomatHealthData
             }, 1000);
         });
     }
@@ -60,14 +59,35 @@ export class HealthComponent implements OnInit {
             { headers: Object.keys(this.healthData[0]) });
     }
 
-    public getStatus(timestamp : string){
+    public fomatHealthData(metrics: any) {
+        // Loop Json data and update status
+        let result = [];
+
+        metrics.forEach(element => {
+            element.status = this.getStatus(element.timestamp, element.hasVersion, element.firmwareVersion, element.tmoFormsVersion, element.tmoFirmwareVersion);
+            result.push(element);
+
+        });
+        return result;
+    }
+
+    public getStatus(timestamp: string, hasVersion, firmwareVersion, tmoFormsVersion, tmoFirmwareVersion){
+        var status = 'Green';
         var dataDate  = new Date(timestamp);
         var threeDayFromCurrentDate = new Date();
         threeDayFromCurrentDate.setDate( threeDayFromCurrentDate.getDate() + 3 );
+        
         if (dataDate > threeDayFromCurrentDate) {
-            return "RED"
-        } else {
-            return  "GREEN";
-        }    
+            status = 'Red';
+        }
+
+        if (parseInt(hasVersion) >= config.hasVersion &&
+            parseInt(firmwareVersion) >= config.firmwareVersion && 
+            parseInt(tmoFormsVersion) >= config.tmoFormsVersion &&
+            parseInt(tmoFirmwareVersion) >= config.tmoFirmwareVersion) {
+            status = 'Orange';
+        }
+
+        return status;
     }
 }

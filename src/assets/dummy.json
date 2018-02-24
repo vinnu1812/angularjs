@@ -1,8 +1,8 @@
 {
     "HealthMetrics":[
         {
-            "host": "test updated",
-            "storeId": 91,
+            "host": "test updated1",
+            "storeId": 9,
             "reboots": 3,
             "type": "type1",
             "serialNmuber": "14",
@@ -13,8 +13,8 @@
             "timestamp": "2018-02-27"
         },
         {
-            "host": "test updated",
-            "storeId": 91,
+            "host": "test updated2",
+            "storeId": 41,
             "reboots": 3,
             "type": "type1",
             "serialNmuber": "14",
@@ -25,8 +25,8 @@
             "timestamp": "2018-02-28"
         },
         {
-            "host": "test updated",
-            "storeId": 91,
+            "host": "test updated3",
+            "storeId": 70,
             "reboots": 3,
             "type": "type1",
             "serialNmuber": "14",
@@ -38,7 +38,7 @@
         },
         {
             "host": "test old",
-            "storeId": 91,
+            "storeId": 51,
             "reboots": 3,
             "type": "type1",
             "serialNmuber": "14",
@@ -50,7 +50,7 @@
         },
         {
             "host": "test color",
-            "storeId": 91,
+            "storeId": 21,
             "reboots": 3,
             "type": "type1",
             "serialNmuber": "14",
@@ -62,7 +62,7 @@
         },
         {
             "host": "test updated",
-            "storeId": 91,
+            "storeId": 89,
             "reboots": 3,
             "type": "type1",
             "serialNmuber": "14",
@@ -74,7 +74,7 @@
         },
         {
             "host": "test updated",
-            "storeId": 91,
+            "storeId": 45,
             "reboots": 3,
             "type": "type1",
             "serialNmuber": "14",
