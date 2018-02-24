@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from "@angular/http";
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
+import { config } from '../config/config';
 
 @Component({
   selector: 'app-tables',
@@ -11,10 +12,11 @@ export class HealthComponent implements OnInit {
     
     public data;
     public healthData;
-    public filterQuery = "";
+    public storeIdSearch = '';
+    public hostSearch = '';
     public rowsOnPage = 5;
-    public sortBy = "host";
-    public sortOrder = "asc";
+    public sortBy = 'host';
+    public sortOrder = 'asc';
 
     constructor(private http: Http) {
     }
@@ -24,12 +26,13 @@ export class HealthComponent implements OnInit {
     }
 
     public getData() {
-        this.http.get("http://localhost:8080/has/health")
+        this.http.get(config.apiUrl)
         .subscribe((data)=> {
             setTimeout(()=> {
                 this.data = data.json();
+                this.data.HealthMetrics = this.fomatHealthData(this.data.HealthMetrics);
                 this.healthData = new Array<any>();
-                this.healthData = this.healthData.concat(this.data.healthMetrics);
+                this.healthData = this.healthData.concat(this.data.HealthMetrics);
             }, 1000);
         });
     }
@@ -43,7 +46,8 @@ export class HealthComponent implements OnInit {
     }
 
     public refresh(){
-        this.filterQuery = '';
+        this.hostSearch = '';
+        this.storeIdSearch = '';
         this.healthData = new Array<any>();
         setTimeout(() => this.getData(), 1000);
     }
@@ -53,5 +57,37 @@ export class HealthComponent implements OnInit {
             this.healthData,
             'HealthData',
             { headers: Object.keys(this.healthData[0]) });
+    }
+
+    public fomatHealthData(metrics: any) {
+        // Loop Json data and update status
+        let result = [];
+
+        metrics.forEach(element => {
+            element.status = this.getStatus(element.timestamp, element.hasVersion, element.firmwareVersion, element.tmoFormsVersion, element.tmoFirmwareVersion);
+            result.push(element);
+
+        });
+        return result;
+    }
+
+    public getStatus(timestamp: string, hasVersion, firmwareVersion, tmoFormsVersion, tmoFirmwareVersion){
+        var status = 'Green';
+        var dataDate  = new Date(timestamp);
+        var threeDayFromCurrentDate = new Date();
+        threeDayFromCurrentDate.setDate( threeDayFromCurrentDate.getDate() + 3 );
+        
+        if (dataDate > threeDayFromCurrentDate) {
+            status = 'Red';
+        }
+
+        if (parseInt(hasVersion) >= config.hasVersion &&
+            parseInt(firmwareVersion) >= config.firmwareVersion && 
+            parseInt(tmoFormsVersion) >= config.tmoFormsVersion &&
+            parseInt(tmoFirmwareVersion) >= config.tmoFirmwareVersion) {
+            status = 'Orange';
+        }
+
+        return status;
     }
 }
