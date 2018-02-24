@@ -12,11 +12,12 @@ export class HealthComponent implements OnInit {
     
     public data;
     public healthData;
-    public filterQuery = "";
+    public storeIdSearch = '';
+    public hostSearch = '';
     public rowsOnPage = 5;
-    public sortBy = "host";
-    public sortOrder = "asc";
-    public status = "";
+    public sortBy = 'host';
+    public sortOrder = 'asc';
+
     constructor(private http: Http) {
         console.log(config.apiUrl);
     }
@@ -46,7 +47,8 @@ export class HealthComponent implements OnInit {
     }
 
     public refresh(){
-        this.filterQuery = '';
+        this.hostSearch = '';
+        this.storeIdSearch = '';
         this.healthData = new Array<any>();
         setTimeout(() => this.getData(), 1000);
     }
