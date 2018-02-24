@@ -6,20 +6,16 @@ import {Pipe, PipeTransform} from "@angular/core";
 })
 export class DataFilterPipe implements PipeTransform {
 
-    // transform(array: any[], hostSearch: string, storeIdSearch: string): any {
-    //     if (hostSearch) {
-    //         return _.filter(array, row=>row.host.indexOf(hostSearch) > -1);
-    //     }
-    //     return array;
-    // }
-
-    transform(items: any[], hostSearch: string, storeIdSearch: string){
+    transform(items: any[], hostSearch: string, storeIdSearch: string, statusSearch: string){
         if (items && items.length) {
             return items.filter(item => {
                 if (hostSearch && item.host.toLowerCase().indexOf(hostSearch.toLowerCase()) === -1) {
                     return false;
                 }
                 if (storeIdSearch && item.storeId.toString().indexOf(storeIdSearch) === -1) {
+                    return false;
+                }
+                if (statusSearch && item.status.toLowerCase().indexOf(statusSearch.toLowerCase()) === -1) {
                     return false;
                 }
                 return true;

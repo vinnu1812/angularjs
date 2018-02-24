@@ -75,16 +75,19 @@ export class HealthComponent implements OnInit {
         var status = 'Green';
         var dataDate  = new Date(timestamp);
         var threeDayFromCurrentDate = new Date();
-        threeDayFromCurrentDate.setDate( threeDayFromCurrentDate.getDate() + 3 );
+        threeDayFromCurrentDate.setDate( threeDayFromCurrentDate.getDate() + config.validDaysForStatus );
         
         if (dataDate > threeDayFromCurrentDate) {
             status = 'Red';
+            return status;
         }
 
         if (parseInt(hasVersion) >= config.hasVersion &&
             parseInt(firmwareVersion) >= config.firmwareVersion && 
             parseInt(tmoFormsVersion) >= config.tmoFormsVersion &&
             parseInt(tmoFirmwareVersion) >= config.tmoFirmwareVersion) {
+            status = 'Green';
+        }else{
             status = 'Orange';
         }
 

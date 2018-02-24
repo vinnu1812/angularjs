@@ -19,7 +19,13 @@
                                 <input type="text" class="form-control" placeholder="Store id" value="" [(ngModel)]="storeIdSearch"/>
                             </div>
                         </div>
-                        <div class="col-md-6" style="padding-top: 16px;">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Filter by status:</label>
+                                <input type="text" class="form-control" placeholder="Status" value="" [(ngModel)]="statusSearch"/>
+                            </div>
+                        </div>
+                        <div class="col-md-3" style="padding-top: 16px;">
                             <div class="form-group">
                                 <button type="button" (click)="refresh()" class="btn btn-fill pull-right">
                                     <span class="fa fa-refresh"></span> 
@@ -31,7 +37,7 @@
                         </div>
                     </div>
                     <div class="content table-responsive table-full-width">
-                          <table class="table table-hover table-striped" [mfData]="healthData | dataFilter : hostSearch : storeIdSearch" #mf="mfDataTable"
+                          <table class="table table-hover table-striped" [mfData]="healthData | dataFilter : hostSearch : storeIdSearch : statusSearch" #mf="mfDataTable"
                           [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
                           <thead>
                             <tr>
@@ -82,7 +88,10 @@
                                 <td>{{item.firmwareVersion}}</td>
                                 <td>{{item.hasVersion}}</td>
                                 <td>{{item.timestamp}}</td>
-                                <td>{{item.status}}</td>                                  
+                                <td style="text-align: center">
+                                    <span [style.background-color]="item.status" style="height:20px;
+                                    width:20px; border-radius:50%; display:inline-block"></span>
+                                </td>                                  
                             </tr>
                             </tbody>
                             <tfoot>
