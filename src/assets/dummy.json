@@ -8,8 +8,8 @@
             "serialNmuber": "14",
             "tmoFirmwareVersion":4,
             "tmoFormsVersion":9,
-            "firmwareVersion":"2.6",
-            "hasVersion":"5.2",
+            "firmwareVersion":"1.6.2",
+            "hasVersion":"3.2.1",
             "timestamp": "2018-02-27"
         },
         {
@@ -18,11 +18,11 @@
             "reboots": 3,
             "type": "type1",
             "serialNmuber": "14",
-            "tmoFirmwareVersion":4,
-            "tmoFormsVersion":7,
+            "tmoFirmwareVersion":3,
+            "tmoFormsVersion":6,
             "firmwareVersion":"2.6",
             "hasVersion":"5.2",
-            "timestamp": "2018-02-28"
+            "timestamp": "2018-03-03"
         },
         {
             "host": "test updated3",
@@ -32,8 +32,8 @@
             "serialNmuber": "14",
             "tmoFirmwareVersion":4,
             "tmoFormsVersion":7,
-            "firmwareVersion":"2.6",
-            "hasVersion":"5.2",
+            "firmwareVersion":"1.6.0",
+            "hasVersion":"1.5.2",
             "timestamp": "2018-02-24"
         },
         {

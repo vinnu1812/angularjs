@@ -2,7 +2,7 @@ export const config = {
     apiUrl: 'assets/dummy.json',
     validDaysForStatus: 3,
     tmoFirmwareVersion: 4,
-    tmoFormsVersion: 9,
-    firmwareVersion: 2.6,
-    hasVersion: 5.2
+    tmoFormsVersion: 7,
+    firmwareVersion: '1.6.1',
+    hasVersion: '3.2.1'
   };

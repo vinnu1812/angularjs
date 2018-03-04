@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Http} from "@angular/http";
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 import { config } from '../config/config';
+import { compare } from 'compare-versions';
 
 @Component({
   selector: 'app-tables',
@@ -73,19 +74,20 @@ export class HealthComponent implements OnInit {
 
     public getStatus(timestamp: string, hasVersion, firmwareVersion, tmoFormsVersion, tmoFirmwareVersion){
         var status = 'Green';
+        var compareVersions = require('compare-versions');
         var dataDate  = new Date(timestamp);
         var threeDayFromCurrentDate = new Date();
-        threeDayFromCurrentDate.setDate( threeDayFromCurrentDate.getDate() + config.validDaysForStatus );
+        threeDayFromCurrentDate.setDate( threeDayFromCurrentDate.getDate() - config.validDaysForStatus );
         
-        if (dataDate > threeDayFromCurrentDate) {
+        if (dataDate < threeDayFromCurrentDate) {
             status = 'Red';
             return status;
         }
-
-        if (parseInt(hasVersion) >= config.hasVersion &&
-            parseInt(firmwareVersion) >= config.firmwareVersion && 
-            parseInt(tmoFormsVersion) >= config.tmoFormsVersion &&
-            parseInt(tmoFirmwareVersion) >= config.tmoFirmwareVersion) {
+        
+        if(compareVersions(hasVersion, config.hasVersion) >= 0 && 
+           compareVersions(firmwareVersion, config.firmwareVersion) >= 0 &&
+           parseInt(tmoFormsVersion) >= config.tmoFormsVersion &&
+           parseInt(tmoFirmwareVersion) >= config.tmoFirmwareVersion){
             status = 'Green';
         }else{
             status = 'Orange';
